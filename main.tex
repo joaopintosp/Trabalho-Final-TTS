@@ -1,0 +1,156 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[portuguese]{babel}
+\usepackage{indentfirst}
+\usepackage{mathptmx}
+\usepackage[pt]{datetime2}
+%\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{slantsc}
+\usepackage[version=4]{mhchem}
+%%%%%---------------------ESPAÇAMENTO E AVANÇO DE PARÁGRAFOS-------------------%%%%%%%%%
+\usepackage{setspace}
+\usepackage{emptypage}
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{6pt}
+\newcommand{\newpara}
+        {
+        \vskip 6pt
+        }
+        
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+% Para gerar referências bibliográficas
+\usepackage[style=apa]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{amsmath} % Para fórmulas matemáticas
+\usepackage{hyperref, bookmark} % Para gerar os Índices
+\hypersetup{pdfborder=0 0 0}
+\usepackage{booktabs}
+
+
+%%%%%-----------------------Referir-Figuras/Tabelas...---------------------------%%%%%%%%%
+\usepackage[capitalize, brazilian]{cleveref}
+% "cleveref" Portuguese names.
+\Crefname{equation}{Equação}{Equações}
+\Crefname{table}{Tabela}{Tabelas}
+\Crefname{figure}{Figura}{Figuras}
+\crefname{chapter}{capítulo}{capítulos}
+\Crefname{chapter}{Capítulo}{Capítulos}
+\crefname{section}{secção}{secções}
+\Crefname{section}{Secção}{Secções}
+\crefname{appendix}{anexo}{anexos}
+\Crefname{appendix}{Anexo}{Anexos}
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+
+%%%%%--------------------------------MARGENS-----------------------------------%%%%%%%%%
+\RequirePackage[outer=25mm,inner=35mm,vmargin=20mm,includehead,includefoot,headheight=15pt]{geometry}
+\setlength{\headheight}{14pt} 
+
+%%%%%---------------------------PERSONALIZAR TABELAS---------------------------%%%%%%%%%
+\usepackage{array, multirow,multicol,tabularx,hhline}
+\usepackage[table]{xcolor}
+\newcolumntype{S}{>{\columncolor{black!20}} c}
+\newcolumntype{Y}{>{\columncolor{yellow!20}} c}
+\renewcommand{\arrayrulewidth}{0.2mm}
+\newcolumntype{R}{>{\columncolor{red!30}} c}
+
+\usepackage{caption}
+\captionsetup[table]{skip=3pt}
+\DeclareCaptionFormat{custom}
+{%
+    \textbf{#1#2}\emph{\small #3}
+}
+\captionsetup{format=custom}
+
+\newcommand{\source}[1]{\caption*{\textbf{\normalsize{\emph{Fonte:}}} {#1}} }
+
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+\usepackage{graphicx} % Para introduzir imagens no documento
+\graphicspath{{imagens/}} % Definir a pasta das imagens
+
+%%%%%---------------------------------ESTILO 2---------------------------------%%%%%%%%%
+\usepackage{fancyhdr}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancypagestyle{plain}{%  first page of chapters
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt} % no rule
+    \renewcommand{\footrulewidth}{0pt} % Adicionar Linha no rodapé (Predefinição 0pt)
+}
+%\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+\fancypagestyle{fancy}{%  all pages
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[L]{\textit{\small Teoria do Tratamento de Sinal}}
+    \fancyhead[R]{\textit{\small Sá Pereira, J.}}
+    \fancyfoot[C]{\thepage}
+       \renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+ \pagestyle{fancy} % apply the stye <<<<<<<<<<<<<
+
+ \usepackage[explicit,compact]{titlesec}
+\titleformat{\chapter}[block]
+    {\bfseries\huge}{\filright\huge\thechapter.}{1ex}{\huge\filright #1}
+    \titlespacing*{\chapter}{0pt}{-30pt}{30pt}
+\titlelabel{\thetitle.\quad}
+\usepackage{subcaption}
+\usepackage{hhline}
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+
+\setcounter{MaxMatrixCols}{20}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{enumitem}
+  \newcommand{\graus}{$^{\circ}$C }
+
+  \usepackage{fontspec}
+  \setmainfont{Calibri}
+  \usepackage{lipsum}
+
+\usepackage[numbered, framed]{matlab-prettifier}
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Código}
+
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+%%%%%----------------------------ÍNICIO DO DOCUMENTO---------------------------%%%%%%%%%
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+\pagenumbering{roman}
+\begin{document}
+    \include{titlepage2}
+    \shipout\null
+    \pagestyle{plain}
+%%%%%---------------------------------PREÂMBULO--------------------------------%%%%%%%%%
+    %\cleardoublepage
+    %\include{./capitulos/resumo}
+    \cleardoublepage
+    \pdfbookmark[0]{Conteúdo}{contents}
+    \tableofcontents
+    \cleardoublepage
+    \pdfbookmark[0]{Lista de Figuras}{figures}
+    \listoffigures
+    % \cleardoublepage
+    % \pdfbookmark[0]{Lista de Tabelas}{tables}
+    % \listoftables
+    \cleardoublepage
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+
+%%%%%-----------------------------CORPO DO DOCUMENTO---------------------------%%%%%%%%%
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\include{./capitulos/capitulo1}
+% \include{./capitulos/capitulo2}
+% \include{./capitulos/capitulo3}
+% \include{./capitulos/capitulo4}
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+
+%%%%%--------------------------BIBLIOGRAFIA E ANEXOS---------------------------%%%%%%%%%
+% \nocite{*}
+% \printbibliography % Gera as Referências Bibliográficas
+
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+%\appendix
+%\input{anexos}
+
+%%%%%--------------------------------------------------------------------------%%%%%%%%%
+\end{document}
