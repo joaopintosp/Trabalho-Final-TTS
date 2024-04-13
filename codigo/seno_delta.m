@@ -9,7 +9,6 @@ t = 0:dt:2;
 A = 1;
 F = 8;
 y = sin(2 * pi * F * t);
-
 figure();
 plot(t,y);
 title('Função Seno');
@@ -19,7 +18,6 @@ axis([0 2 -2 2]);
 ft_y = fft(y);
 df = (1/dt)/length(ft_y);
 freq = (0:length(ft_y)-1)*df;
-
 figure();
 plot(freq, abs(ft_y));
 title('Função Delta');
