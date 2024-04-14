@@ -16,6 +16,6 @@ fmax=length(S);
 df=(1/dt)/length(S);
 freq=(0:length(S)-1)*df; % Definir o eixo das frequências
 figure();
-plot(freq,abs(S), Marker="+"); title('Transformada');
+plot(freq,abs(S), Marker='+'); title('Transformada');
 xlim([0 (1/dt)/2]);
 ylim([0 200]);

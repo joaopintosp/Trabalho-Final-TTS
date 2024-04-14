@@ -8,8 +8,7 @@ dt1=1/SR1;
 dt2=1/SR2;
 t1 = 0:dt1:2;
 t2 = 0:dt2:2;
-s1 = sin(2*pi*F*t1).*exp(-t1/T2);
-s2 = sin(2*pi*F*t2).*exp(-t2/T2);
+s1 = sin(2*pi*F*t1).*exp(-t1/T2); s2 = sin(2*pi*F*t2).*exp(-t2/T2);
 
 figure();
 hold on 
